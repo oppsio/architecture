@@ -1,0 +1,7 @@
+{
+  "env": {
+    "babelrc_version": "oppsio.babelrc.dotfile.v1.0"
+  },
+  "plugins": [],
+  "presets": ["es2015"]
+}
