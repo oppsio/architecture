@@ -1,3 +1,13 @@
+kafka:
+  image: spotify/kafka
+  ports:
+    - "9092:9092"
+    - "2181:2181"
+  environment:
+    KAFKA_ADVERTISED_HOST: HOSTIP
+    KAFKA_ADVERTISED_PORT: 9092
+    KAFKA_CREATE_TOPICS: "test:1:1"
+
 test:
   build: ./dockers/node
   volumes:
@@ -5,7 +15,7 @@ test:
   working_dir: /app
   ports:
     - "8080:8080"
-  # links:
-  #   - kafka
+  links:
+    - kafka
   environment:
     NODE_ENV: development
